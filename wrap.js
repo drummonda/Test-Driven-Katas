@@ -1,9 +1,10 @@
 const wrap = (line, maxLen) => {
   if(!maxLen) { return line; }
   if(!line.length) { return ""; }
-  let currentLineLength = 0;
+  let currentLineLength = 1;
   const words = line.split(" ");
   let result = [];
+
   words.map((word, index) => {
     currentLineLength += word.length + 1;
     if(currentLineLength >= maxLen && index !== words.length - 1) {
@@ -17,10 +18,7 @@ const wrap = (line, maxLen) => {
     else {
       result.push(word);
     }
-
   })
-
-
   return result.join("");
 }
 
